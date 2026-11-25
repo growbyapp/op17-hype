@@ -1,0 +1,68 @@
+EB04-061_p2|SEC|Monkey.D.Luffy|Yellow
+OP17-001|L|Edward.Newgate|Red
+OP17-001_p1|L|Edward.Newgate|Red
+OP17-005|SR|Edward.Newgate|Red
+OP17-005_p1|SR|Edward.Newgate|Red
+OP17-005_p2|SR|Edward.Newgate|Red
+OP17-006_p1|C|Kingdew|Red
+OP17-020|L|Shanks|Green
+OP17-020_p1|L|Shanks|Green
+OP17-022|SR|Shanks|Green
+OP17-022_p1|SR|Shanks|Green
+OP17-022_p2|SR|Shanks|Green
+OP17-025_p1|UC|Building Snake|Green
+OP17-027_p1|R|Benn.Beckman|Green
+OP17-031|SR|Yasopp|Green
+OP17-031_p1|SR|Yasopp|Green
+OP17-037_p1|R|Are You That Afraid of the New Era?!!|Green
+OP17-039|L|Rocks.D.Xebec|Blue
+OP17-039_p1|L|Rocks.D.Xebec|Blue
+OP17-040_p1|TR|Edward.Newgate|Blue
+OP17-045_p1|UC|Kyo|Blue
+OP17-046|SR|Gloriosa|Blue
+OP17-046_p1|SR|Gloriosa|Blue
+OP17-048|SR|Shiki|Blue
+OP17-048_p1|SR|Shiki|Blue
+OP17-049_p1|R|Charlotte Linlin|Blue
+OP17-054_p1|R|Miss Buckingham Stussy|Blue
+OP17-058|L|Kaido|Purple
+OP17-058_p1|L|Kaido|Purple
+OP17-061_p1|R|Lead Performers|Purple
+OP17-062|SR|Kaido|Purple
+OP17-062_p1|SR|Kaido|Purple
+OP17-062_p2|SR|Kaido|Purple
+OP17-062_p3|SR|Kaido|Purple
+OP17-063|SR|Kaido|Purple
+OP17-063_p1|SR|Kaido|Purple
+OP17-070_p1|C|Scratchmen Apoo|Purple
+OP17-079|L|Monkey.D.Luffy|Black
+OP17-079_p1|L|Monkey.D.Luffy|Black
+OP17-079_p2|L|Monkey.D.Luffy|Black
+OP17-080|SR|Usopp|Black
+OP17-080_p1|SR|Usopp|Black
+OP17-087_p1|R|Nico Robin|Black
+OP17-088_p1|C|Hajrudin|Black
+OP17-093|SR|Monkey.D.Luffy|Black
+OP17-093_p1|SR|Monkey.D.Luffy|Black
+OP17-099|L|Charlotte Linlin|Yellow
+OP17-099_p1|L|Charlotte Linlin|Yellow
+OP17-107_p1|UC|Charlotte Daifuku|Yellow
+OP17-112|SR|Charlotte Linlin|Yellow
+OP17-112_p1|SR|Charlotte Linlin|Yellow
+OP17-112_p2|SR|Charlotte Linlin|Yellow
+OP17-114_p1|R|Sweet 3 Generals|Yellow
+OP17-118|SEC|Rocks.D.Xebec|Blue
+OP17-118_p1|SEC|Rocks.D.Xebec|Blue
+OP17-118_p2|SEC|Rocks.D.Xebec|Blue
+OP17-119|SEC|Loki|Black
+OP17-119_p1|SEC|Loki|Black
+EB04-007_p2|SP CARD|Roronoa Zoro|Red
+OP12-056_p2|SP CARD|Monkey.D.Garp|Blue
+OP13-028_p2|SP CARD|Shanks|Green
+OP14-108_p3|SP CARD|Silvers Rayleigh|Yellow
+OP16-098_p2|SP CARD|Yamato|Black
+P-084_p1|SP CARD|Buggy|Blue
+P-107_p1|SP CARD|Gol.D.Roger|Purple
+ST27-005_p1|SP CARD|Marshall.D.Teach|Black
+ST31-004_p1|SP CARD|Monkey.D.Luffy|Red
+ST32-002_p1|SP CARD|Kouzuki Oden|Green

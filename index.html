@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>OP-17 · The World's Strongest Warriors · Pull Hype</title>
+  <meta name="description" content="Fan-made hype page for the One Piece Card Game set OP-17 The World's Strongest Warriors: SP cards, chase cards, parallels and Cardmarket prices.">
+  <meta name="theme-color" content="#05060d">
+  <meta name="referrer" content="no-referrer">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="bg" aria-hidden="true">
+    <div class="bg__aurora"></div>
+    <div class="bg__dust bg__dust--a"></div>
+    <div class="bg__dust bg__dust--b"></div>
+    <div class="bg__vignette"></div>
+  </div>
+
+  <header class="hero">
+    <div class="hero__copy">
+      <p class="eyebrow"><span class="eyebrow__code" data-set-code>OP-17</span> One Piece Card Game · Booster Set</p>
+      <h1 class="title">
+        <span class="title__small">The World's</span>
+        <span class="title__big">Strongest</span>
+        <span class="title__big title__big--alt">Warriors</span>
+      </h1>
+      <p class="hype">You just opened the World's Strongest Warriors.</p>
+      <p class="hype__sub">Rocks D. Xebec, Whitebeard, Big Mom, Kaido, Shanks, Loki. Every pack in this box could hold a legend. Here is everything worth pulling.</p>
+      <ul class="stats" data-stats></ul>
+      <nav class="hero__cta" aria-label="Sections">
+        <a class="btn btn--gold" href="#sp">SP cards</a>
+        <a class="btn" href="#chase">Chase list</a>
+        <a class="btn" href="#parallels">Leaders &amp; parallels</a>
+      </nav>
+    </div>
+    <div class="hero__fan" data-featured aria-label="Featured cards"></div>
+  </header>
+
+  <main>
+    <section class="section" id="sp" aria-labelledby="sp-h">
+      <div class="section__head">
+        <p class="section__kicker">The rarest of the rare</p>
+        <h2 class="section__title" id="sp-h">SP cards</h2>
+        <p class="section__blurb">Special-art reprints of fan favourites from across the game. One of these in your box and the night is made.</p>
+      </div>
+      <div class="grid" data-grid="sp"></div>
+    </section>
+
+    <section class="section" id="chase" aria-labelledby="chase-h">
+      <div class="section__head">
+        <p class="section__kicker">Secret rares, Treasure Rare &amp; alt arts</p>
+        <h2 class="section__title" id="chase-h">Chase cards</h2>
+        <p class="section__blurb">The big hits: SECs, the Treasure Rare and the alternate-art versions everyone is hunting.</p>
+      </div>
+      <div class="grid" data-grid="chase"></div>
+    </section>
+
+    <section class="section" id="parallels" aria-labelledby="par-h">
+      <div class="section__head">
+        <p class="section__kicker">Leaders, Super Rares &amp; parallels</p>
+        <h2 class="section__title" id="par-h">Leaders &amp; parallels</h2>
+        <p class="section__blurb">The leaders that build the meta, the Super Rares and every parallel foil in the set.</p>
+      </div>
+      <div class="grid grid--dense" data-grid="parallels"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p data-footer>Fan-made, not affiliated with Bandai. Card images © Eiichiro Oda/Shueisha, Toei Animation, Bandai, from the official card list. Prices from Cardmarket, checked soon.</p>
+  </footer>
+
+  <dialog class="modal" data-modal aria-labelledby="modal-name">
+    <div class="modal__inner">
+      <button class="modal__close" type="button" data-close aria-label="Close">&times;</button>
+      <div class="modal__stage" data-modal-stage></div>
+      <div class="modal__info" data-modal-info></div>
+    </div>
+  </dialog>
+
+  <noscript><p class="noscript">This page needs JavaScript to show the cards.</p></noscript>
+  <script src="app.js" defer></script>
+</body>
+</html>

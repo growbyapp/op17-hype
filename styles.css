@@ -44,9 +44,7 @@ a { color: inherit; }
     radial-gradient(30% 28% at 72% 30%, rgba(120, 80, 255, .20), transparent 70%),
     radial-gradient(32% 30% at 55% 72%, rgba(0, 190, 255, .13), transparent 70%),
     radial-gradient(28% 26% at 20% 75%, rgba(255, 60, 120, .10), transparent 70%);
-  filter: blur(20px);
   animation: aurora 26s ease-in-out infinite alternate;
-  will-change: transform;
 }
 @keyframes aurora {
   0% { transform: translate3d(-4%, -2%, 0) rotate(0deg) scale(1); }
@@ -66,7 +64,6 @@ a { color: inherit; }
   background-size: 340px 340px;
   opacity: .55;
   animation: dust 60s linear infinite;
-  will-change: transform;
 }
 .bg__dust--b { background-size: 520px 520px; opacity: .35; animation-duration: 95s; }
 @keyframes dust { to { transform: translate3d(0, 50%, 0); } }
@@ -207,27 +204,22 @@ main { max-width: 1280px; margin: 0 auto; padding: 0 clamp(.75rem, 3vw, 3rem); }
   aspect-ratio: 600 / 838;
   border-radius: var(--radius-card);
   transform: rotateX(calc(var(--rx) * 1deg)) rotateY(calc(var(--ry) * 1deg)) scale(calc(1 + var(--act) * .035));
-  will-change: transform;
   transform-style: flat;
 }
 .holo__shadow {
   position: absolute; inset: 7% 6% -3%;
   border-radius: 8%;
-  background: radial-gradient(closest-side, rgba(0, 0, 0, .85), rgba(0, 0, 0, .35) 70%, transparent);
-  filter: blur(14px);
+  background: radial-gradient(closest-side, rgba(0, 0, 0, .7), rgba(0, 0, 0, .3) 60%, transparent);
   transform: translate3d(calc(var(--ry) * -1.1px), calc(var(--rx) * 1.1px + 16px), 0) scale(calc(.96 + var(--act) * .06));
   opacity: calc(.75 + var(--act) * .25);
-  will-change: transform, opacity;
   pointer-events: none;
 }
 .holo__glow {
   position: absolute; inset: 4%;
   border-radius: 8%;
-  background: var(--glow, rgba(245, 207, 106, .5));
-  filter: blur(26px);
+  background: radial-gradient(closest-side, var(--glow, rgba(245, 207, 106, .5)), transparent);
   opacity: calc(var(--act) * .55);
   transform: translate3d(calc(var(--ry) * -.8px), calc(var(--rx) * .8px + 8px), 0);
-  will-change: transform, opacity;
   pointer-events: none;
 }
 .holo__face {
@@ -237,8 +229,6 @@ main { max-width: 1280px; margin: 0 auto; padding: 0 clamp(.75rem, 3vw, 3rem); }
   background: linear-gradient(145deg, #1a2150, #0b0f28);
   isolation: isolate;
   box-shadow: 0 0 0 1px rgba(255, 255, 255, .08) inset;
-  /* Safari: keep children clipped to rounded corners while transformed */
-  -webkit-mask-image: -webkit-radial-gradient(white, black);
 }
 .holo__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; user-select: none; -webkit-user-drag: none; }
 .holo__fallback {
@@ -273,7 +263,6 @@ main { max-width: 1280px; margin: 0 auto; padding: 0 clamp(.75rem, 3vw, 3rem); }
   mix-blend-mode: color-dodge;
   opacity: calc(var(--foil-base) + var(--act) * var(--foil-gain));
   transform: translate3d(calc(var(--fx) * -22%), calc(var(--fy) * -22%), 0);
-  will-change: transform, opacity;
   pointer-events: none;
 }
 .holo__foil::after {
@@ -294,17 +283,15 @@ main { max-width: 1280px; margin: 0 auto; padding: 0 clamp(.75rem, 3vw, 3rem); }
   mix-blend-mode: screen;
   opacity: calc(var(--glit-base) + var(--act) * var(--glit-gain));
   transform: translate3d(calc(var(--fx) * 6%), calc(var(--fy) * 6%), 0);
-  will-change: transform, opacity;
   pointer-events: none;
 }
 /* specular glare following the pointer */
 .holo__glare {
-  position: absolute; inset: -100%;
-  background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, .95) 0%, rgba(255, 255, 255, .45) 7%, rgba(255, 255, 255, .12) 16%, transparent 27%);
+  position: absolute; inset: -60%;
+  background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, .95) 0%, rgba(255, 255, 255, .45) 10%, rgba(255, 255, 255, .12) 22%, transparent 37%);
   mix-blend-mode: overlay;
   opacity: calc(.12 + var(--act) * var(--glare-gain));
-  transform: translate3d(calc(var(--px) * 33.3%), calc(var(--py) * 33.3%), 0);
-  will-change: transform, opacity;
+  transform: translate3d(calc(var(--px) * 45%), calc(var(--py) * 45%), 0);
   pointer-events: none;
 }
 .holo__edge {
@@ -312,6 +299,13 @@ main { max-width: 1280px; margin: 0 auto; padding: 0 clamp(.75rem, 3vw, 3rem); }
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .18), inset 0 1px 0 rgba(255, 255, 255, .35);
   pointer-events: none;
 }
+
+/* Effects only exist on cards near the screen (JS adds .is-live), so the
+   phone never holds GPU layers for ~70 cards at once. */
+.holo:not(.is-live) :is(.holo__foil, .holo__glitter, .holo__glare, .holo__glow) { display: none; }
+.holo.is-live { will-change: transform; }
+.holo.is-live .holo__face { -webkit-mask-image: -webkit-radial-gradient(white, black); }
+.holo.is-live :is(.holo__foil, .holo__glare) { will-change: transform, opacity; }
 
 /* foil strengths */
 .holo--base { --foil-base: .03; --foil-gain: .22; --glit-base: 0; --glit-gain: .12; --glare-gain: .55; }

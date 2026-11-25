@@ -14,7 +14,7 @@
     Purple: "#a66bff", Black: "#c9cbe0", Yellow: "#ffd23f",
   };
   // Image source for a card. Change this one line to point at another host.
-  const imgUrl = (c) => `img/${c.id}.png`;
+  const imgUrl = (c, full) => (full ? `img/${c.id}.png` : `thumb/${c.id}.jpg`);
   const eur = new Intl.NumberFormat("en-IE", { style: "currency", currency: "EUR" });
   const hasPrice = (c) => typeof c.price_eur === "number" && isFinite(c.price_eur);
   const $ = (s, r = document) => r.querySelector(s);
@@ -47,7 +47,7 @@
     return "base";
   }
 
-  function buildHolo(c, { eager = false } = {}) {
+  function buildHolo(c, { eager = false, full = false } = {}) {
     const holo = el("div", `holo holo--${holoKind(c)}`);
     const tint = COLORS[c.color] || "#f5cf6a";
     holo.style.setProperty("--glow", tint + "88");
@@ -59,10 +59,10 @@
     img.decoding = "async";
     img.loading = eager ? "eager" : "lazy";
     img.referrerPolicy = "no-referrer";
-    img.width = 600; img.height = 838;
+    img.width = full ? 600 : 429; img.height = full ? 838 : 600;
     img.draggable = false;
     img.addEventListener("error", () => holo.classList.add("is-broken"), { once: true });
-    img.src = imgUrl(c);
+    img.src = imgUrl(c, full);
     // Shown if the image host refuses the request (see README: the official host
     // sends Cross-Origin-Resource-Policy: same-site).
     const fb = el("div", "holo__fallback");
@@ -189,6 +189,7 @@
       const h = e.target._holo;
       if (!h) continue;
       h.visible = e.isIntersecting;
+      h.holo.classList.toggle("is-live", h.visible);
       if (h.visible) kick();
     }
   }, { rootMargin: "80px 0px" });
@@ -374,7 +375,8 @@
     const btn = el("button", "card__btn");
     btn.type = "button";
     btn.setAttribute("aria-label", `${c.name} card. Drag to tilt.`);
-    const holo = buildHolo(c, { eager: true });
+    const holo = buildHolo(c, { eager: true, full: true });
+    holo.classList.add("is-live");
     btn.append(holo);
     stage.replaceChildren(btn);
     modalHolo = registerHolo(btn, holo, { modal: true, idle: true, phase: 0 });
